@@ -20,16 +20,16 @@ function Slide() {
       <SplideSlide className="w-full cursor-move">
         <img src={Tuscany} alt="" className="w-full h-screen" />
       </SplideSlide>
-      <SplideSlide className="w-full">
+      <SplideSlide className="w-full cursor-move">
         <img src={Pic01} alt="" className="w-full h-screen" />
       </SplideSlide>
-      <SplideSlide className="w-full">
+      <SplideSlide className="w-full cursor-move">
         <img src={Pic02} alt="" className="w-full h-screen" />
       </SplideSlide>
-      <SplideSlide className="w-full">
+      <SplideSlide className="w-full cursor-move">
         <img src={Pic03} alt="" className="w-full h-screen" />
       </SplideSlide>
-      <SplideSlide className="w-full">
+      <SplideSlide className="w-full cursor-move">
         <img src={Pic04} alt="" className="w-full h-screen" />
       </SplideSlide>
     </Splide>

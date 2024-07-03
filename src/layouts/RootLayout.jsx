@@ -6,6 +6,7 @@ import Logo from '../components/Logo';
 // eslint-disable-next-line import/no-unresolved
 import '@splidejs/react-splide/css';
 import Slide from '../components/Slide';
+import LandingMovieDetails from '../components/FeaturedDetails';
 
 function RootLayout() {
   return (
@@ -20,6 +21,18 @@ function RootLayout() {
 
       <section className="relative top-0 w-full">
         <Slide />
+        <LandingMovieDetails
+          title="Mad Max: Fury"
+          rating="8.5"
+          year="2015"
+          duration={128}
+          genres={[
+            { name: 'Action' },
+            { name: 'Thriller' },
+            { name: 'Fiction' },
+          ]}
+          overview="Retired from active duty, and training recruits for the Impossible Mission Force, agent Ethan Hunt faces the toughest foe of his career: Owen Davian, an international broker of arms and information"
+        />
       </section>
 
       <Outlet />

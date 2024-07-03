@@ -14,3 +14,7 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 }
+
+.custom-shadow {
+  box-shadow: inset 14rem 2rem 8rem #333;
+}
