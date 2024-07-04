@@ -1,22 +1,35 @@
 /* eslint-disable react/prop-types */
 
 import { FaStar, FaPlayCircle, FaBookmark } from 'react-icons/fa';
+import useMovieDetails from '../hooks/useMovieDetails';
 
-function LandingMovieDetails({
-  title,
-  rating,
-  year,
-  duration,
-  genres,
-  overview,
-}) {
+function FeaturedDetails({ movieId }) {
+  const { movieDetails } = useMovieDetails(movieId);
+
+  if (!movieDetails) {
+    return null;
+  }
+
+  const {
+    original_title: originalTitle,
+    overview,
+    release_date: releaseDate,
+    vote_average: voteAverage,
+    runtime: duration,
+    genres,
+  } = movieDetails;
+
+  const year = releaseDate.split('-')[0];
+
   return (
     <section className="absolute bottom-0 text-white p-4">
-      <h1 className="text-4xl font-bold tracking-wide uppercase">{title}</h1>
+      <h1 className="text-4xl font-bold tracking-wide uppercase">
+        {originalTitle}
+      </h1>
       <div className="flex items-center gap-4 text-sm text-gray-300 tracking-wider">
         <span className="flex gap-1 items-center">
           <FaStar />
-          {rating}
+          {voteAverage.toFixed(2)}
         </span>
         <span>{year}</span>
         <span>{`${duration} min`}</span>
@@ -47,4 +60,4 @@ function LandingMovieDetails({
   );
 }
 
-export default LandingMovieDetails;
+export default FeaturedDetails;

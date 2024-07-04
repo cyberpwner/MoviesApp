@@ -1,11 +1,18 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import Tuscany from '../assets/img/wallpaper_tuscany_sunset.jpg';
-import Pic01 from '../assets/img/pic01.jpg';
-import Pic02 from '../assets/img/pic02.jpg';
-import Pic03 from '../assets/img/pic03.jpg';
+
 import Pic04 from '../assets/img/pic04.jpg';
+import FeaturedDetails from './FeaturedDetails';
+import useFeaturedList from '../hooks/useFeaturedList';
 
 function Slide() {
+  const { isPending, featuredList, error } = useFeaturedList();
+
+  if (error || isPending) {
+    return null;
+  }
+
+  const slicedFeaturedList = featuredList.slice(0, 10);
+
   return (
     <Splide
       className="w-full"
@@ -17,21 +24,12 @@ function Slide() {
         gap: '0',
       }}
     >
-      <SplideSlide className="w-full cursor-move">
-        <img src={Tuscany} alt="" className="w-full h-screen" />
-      </SplideSlide>
-      <SplideSlide className="w-full cursor-move">
-        <img src={Pic01} alt="" className="w-full h-screen" />
-      </SplideSlide>
-      <SplideSlide className="w-full cursor-move">
-        <img src={Pic02} alt="" className="w-full h-screen" />
-      </SplideSlide>
-      <SplideSlide className="w-full cursor-move">
-        <img src={Pic03} alt="" className="w-full h-screen" />
-      </SplideSlide>
-      <SplideSlide className="w-full cursor-move">
-        <img src={Pic04} alt="" className="w-full h-screen" />
-      </SplideSlide>
+      {slicedFeaturedList.map(({ id }) => (
+        <SplideSlide className="w-full cursor-move" key={id}>
+          <img src={Pic04} alt="" className="w-full h-screen" />
+          <FeaturedDetails movieId={id} />
+        </SplideSlide>
+      ))}
     </Splide>
   );
 }
