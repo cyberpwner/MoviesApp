@@ -1,6 +1,8 @@
-const fetchFeaturedList = async () => {
+const fetchFeaturedList = async ({ queryKey }) => {
+  const [, apiKey] = queryKey;
+
   const response = await fetch(
-    'https://api.themoviedb.org/3/movie/popular?api_key=f621196a0e79ce9094cf70e206a154b5&language=en-US&page=1'
+    `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
   );
 
   if (!response.ok) {

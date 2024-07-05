@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import fetchMovieDetails from '../loaders/fetchMovieDetails';
 
-const useMovieDetails = (movieId) => {
+const useMovieDetails = (apiKey, movieId) => {
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ['movieDetails', movieId],
+    queryKey: ['movieDetails', apiKey, movieId],
     queryFn: fetchMovieDetails,
   });
 

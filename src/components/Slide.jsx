@@ -1,9 +1,11 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import FeaturedMovie from './FeaturedMovie';
 import useFeaturedList from '../hooks/useFeaturedList';
+import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 
 function Slide() {
-  const { isPending, featuredList, error } = useFeaturedList();
+  const { apiKey } = useTmdbApi();
+  const { isPending, featuredList, error } = useFeaturedList(apiKey);
 
   if (error || isPending) {
     return null;

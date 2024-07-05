@@ -1,12 +1,12 @@
 const fetchMovieDetails = async ({ queryKey }) => {
-  const [, movieId] = queryKey;
+  const [, apiKey, movieId] = queryKey;
 
   if (!movieId) {
     throw new Error('movie id is undefined/null');
   }
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=f621196a0e79ce9094cf70e206a154b5`
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}`
   );
 
   if (!response.ok) {

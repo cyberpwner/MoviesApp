@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import fetchFeaturedList from '../loaders/fetchFeaturedList';
 
-const useFeaturedList = () => {
+const useFeaturedList = (apiKey) => {
   const { isPending, isError, data, error } = useQuery({
-    queryKey: ['featuredList'],
+    queryKey: ['featuredList', apiKey],
     queryFn: fetchFeaturedList,
   });
 

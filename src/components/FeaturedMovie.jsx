@@ -2,9 +2,11 @@
 
 import { FaStar, FaPlayCircle, FaBookmark } from 'react-icons/fa';
 import useMovieDetails from '../hooks/useMovieDetails';
+import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 
 function FeaturedDetails({ movieId }) {
-  const { movieDetails } = useMovieDetails(movieId);
+  const { apiKey } = useTmdbApi();
+  const { movieDetails } = useMovieDetails(apiKey, movieId);
 
   if (!movieDetails) {
     return null;
