@@ -1,7 +1,5 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-
-import Pic04 from '../assets/img/pic04.jpg';
-import FeaturedDetails from './FeaturedDetails';
+import FeaturedMovie from './FeaturedMovie';
 import useFeaturedList from '../hooks/useFeaturedList';
 
 function Slide() {
@@ -20,14 +18,15 @@ function Slide() {
         type: 'loop',
         perPage: 1,
         perMove: 1,
-        rewind: true,
         gap: '0',
+        autoplay: true,
+        cover: true,
+        lazyLoad: 'nearby',
       }}
     >
       {slicedFeaturedList.map(({ id }) => (
         <SplideSlide className="w-full cursor-move" key={id}>
-          <img src={Pic04} alt="" className="w-full h-screen" />
-          <FeaturedDetails movieId={id} />
+          <FeaturedMovie movieId={id} />
         </SplideSlide>
       ))}
     </Splide>
