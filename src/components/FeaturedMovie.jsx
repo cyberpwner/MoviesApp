@@ -25,18 +25,18 @@ function FeaturedDetails({ movieId }) {
   const year = releaseDate.split('-')[0];
 
   return (
-    <>
+    <div className="my-slide">
       <img
         src={`https://image.tmdb.org/t/p/original${coverPath}`}
         alt="Movie Cover"
         className="w-full h-screen"
       />
 
-      <section className="absolute bottom-0 text-white p-4">
+      <section className="absolute grid grid-cols-1 gap-2 z-10 bottom-0 text-white p-4">
         <h1 className="text-4xl font-bold tracking-wide uppercase">
           {originalTitle}
         </h1>
-        <div className="flex items-center gap-4 text-sm text-gray-300 tracking-wider">
+        <div className="flex items-center gap-4 text-xs text-gray-200 tracking-wider">
           <span className="flex gap-1 items-center">
             <FaStar />
             {voteAverage.toFixed(2)}
@@ -48,26 +48,26 @@ function FeaturedDetails({ movieId }) {
             <span key={name}>{name}</span>
           ))}
         </div>
-        <p className="text-gray-200 w-1/2 text-justify">{overview}</p>
+        <p className="text-dark-gray w-1/2 text-justify">{overview}</p>
 
-        <div className="flex items-center gap-4 font-semibold my-8">
+        <div className="flex items-center gap-4 my-8">
           <button
             type="button"
-            className="flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-blue-950 px-5 py-3 rounded-full transition-all"
+            className="flex items-center gap-2 bg-secondary-yellow hover:bg-yellow-400 text-primary-blue px-5 py-3 rounded-full transition-all"
           >
             <FaPlayCircle />
             Watch Now
           </button>
           <button
             type="button"
-            className="flex items-center gap-2 text-gray-200 px-5 py-3 rounded hover:text-yellow-500"
+            className="flex items-center gap-2 text-gray-200 font-semibold px-5 py-3 rounded hover:text-secondary-yellow transition-all"
           >
             <FaBookmark />
             Bookmark
           </button>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

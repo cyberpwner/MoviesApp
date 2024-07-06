@@ -9,8 +9,10 @@ import Slide from '../components/Slide';
 function RootLayout() {
   return (
     <>
-      <Header />
-      <Slide />
+      <div className="header">
+        <Header />
+        <Slide />
+      </div>
 
       <Outlet />
 
