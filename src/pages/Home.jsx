@@ -1,5 +1,11 @@
+import MoviesList from '../components/MoviesList';
+
 function Home() {
-  return <div className="p-96">Home Page</div>;
+  return (
+    <div className="py-20 px-8 text-white">
+      <MoviesList />
+    </div>
+  );
 }
 
 export default Home;

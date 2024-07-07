@@ -21,7 +21,7 @@ function Slide() {
         perPage: 1,
         perMove: 1,
         gap: '0',
-        // autoplay: true,
+        autoplay: true,
         cover: true,
         lazyLoad: 'nearby',
       }}
