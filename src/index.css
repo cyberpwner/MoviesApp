@@ -64,24 +64,10 @@ html {
   opacity: 0;
   z-index: 1;
   cursor: pointer;
+  border-radius: 4%;
 }
 
 .poster:hover a::after,
-.poster:hover a::before {
+.poster:hover .fa-circle-play {
   opacity: 1;
-}
-
-.poster a::before {
-  position: absolute;
-  z-index: 10;
-  font: var(--fa-font-solid);
-  content: '\f392';
-  opacity: 0;
-  color: #ff0000;
-  margin-left: -25px;
-  margin-top: -25px;
-  top: 50%;
-  left: 50%;
-  font-size: 3rem;
-  transition: all 0.4s;
 }

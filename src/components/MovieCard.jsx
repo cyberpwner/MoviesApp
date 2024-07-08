@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FaCirclePlay } from 'react-icons/fa6';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import useMovieDetails from '../hooks/useMovieDetails';
 
@@ -25,14 +26,18 @@ function MovieCard({ movieId }) {
   const releaseYear = releaseDate.split('-')[0];
 
   return (
-    <section className="flex flex-col gap-2 max-w-48">
-      <div className="poster">
+    <section className="flex flex-col gap-2 max-w-48 hover:text-secondary-yellow transition-all">
+      <div className="poster relative">
         <Link to={`movie/${movieId}`}>
           <img
             className="w-full rounded-lg"
             src={`https://image.tmdb.org/t/p/w154/${posterPath}`}
             alt={`${originalTitle} poster`}
           />
+
+          <div className="absolute top-0 left-0 h-full w-full grid items-center justify-center text-primary-blue">
+            <FaCirclePlay className="fa-circle-play text-5xl z-10 opacity-0 transition-all delay-100 ease-in-out" />
+          </div>
         </Link>
       </div>
 
@@ -41,7 +46,12 @@ function MovieCard({ movieId }) {
         <span>{duration} min</span>
       </div>
 
-      <h4 className="text-sm font-bold">{originalTitle}</h4>
+      <Link
+        to={`movie/${movieId}`}
+        className="text-sm hover:text-secondary-yellow transition-all ease-in"
+      >
+        {originalTitle}
+      </Link>
     </section>
   );
 }
