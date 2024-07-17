@@ -1,11 +1,7 @@
-import MoviesList from '../components/MoviesList';
+import Slide from '../components/Slide';
 
 function Home() {
-  return (
-    <div className="py-20 px-8 text-white">
-      <MoviesList />
-    </div>
-  );
+  return <Slide />;
 }
 
 export default Home;

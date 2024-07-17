@@ -12,12 +12,29 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import TmdbApiProvider from './contexts/TmdbApiContext/TmdbApiProvider';
+import SearchResults from './pages/SearchResults';
+import Error from './components/Error';
+import MovieDetails from './components/MovieDetails';
+import NotFound from './pages/NotFound';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<Home />} />
-      {/* <Route path="filter?keyword=:query" element={filter} /> */}
+    <Route path="/" element={<RootLayout />} errorElement={<Error />}>
+      <Route index element={<Home />} errorElement={<Error />} />
+
+      <Route
+        path="filter/:query"
+        element={<SearchResults />}
+        errorElement={<Error />}
+      />
+
+      <Route
+        path="movie/:id"
+        errorElement={<Error />}
+        element={<MovieDetails />}
+      />
+
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

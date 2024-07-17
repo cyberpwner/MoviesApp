@@ -1,15 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 import TmdbApiContext from './TmdbApiContext';
-import useTmdbApi from './useTmdbApi';
 
 function TmdbApiProvider({ children }) {
-  const { apiKey, setApiKey } = useTmdbApi();
+  const [apiKey, setApiKey] = useState('f621196a0e79ce9094cf70e206a154b5');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const memoizedApiData = useMemo(() => {
-    return { apiKey, setApiKey };
+    return { apiKey, setApiKey, searchQuery, setSearchQuery };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [apiKey]);
+  }, [apiKey, searchQuery]);
 
   return (
     <TmdbApiContext.Provider value={memoizedApiData}>

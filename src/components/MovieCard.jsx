@@ -28,7 +28,7 @@ function MovieCard({ movieId }) {
   return (
     <section className="flex flex-col gap-2 max-w-48 hover:text-secondary-yellow transition-all">
       <div className="poster relative">
-        <Link to={`movie/${movieId}`}>
+        <Link to={`/movie/${movieId}`}>
           <img
             className="w-full rounded-lg"
             src={`https://image.tmdb.org/t/p/w154/${posterPath}`}
@@ -47,7 +47,7 @@ function MovieCard({ movieId }) {
       </div>
 
       <Link
-        to={`movie/${movieId}`}
+        to={`/movie/${movieId}`}
         className="text-sm hover:text-secondary-yellow transition-all ease-in"
       >
         {originalTitle}

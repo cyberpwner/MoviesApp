@@ -1,11 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import PropTypes from 'prop-types';
-import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import fetchMoviesByQuery from '../loaders/fetchMoviesByQuery';
 import MovieCard from './MovieCard';
 
-function MoviesList({ searchQuery = 'training' }) {
-  const { apiKey } = useTmdbApi();
+function MoviesList({ searchQuery = 'training', apiKey }) {
   const { isPending, isError, data, error } = useQuery({
     queryKey: ['searchMovies', apiKey, searchQuery],
     queryFn: fetchMoviesByQuery,
@@ -39,6 +37,7 @@ function MoviesList({ searchQuery = 'training' }) {
 
 MoviesList.propTypes = {
   searchQuery: PropTypes.string.isRequired,
+  apiKey: PropTypes.string.isRequired,
 };
 
 export default MoviesList;
