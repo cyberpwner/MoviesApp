@@ -14,8 +14,9 @@ function SearchBar() {
     const formData = new FormData(event.target);
     const query = formData.get('search');
 
-    // console.log(formData);
-    // console.log(formData.get('search'));
+    if (!query.trim()) {
+      return;
+    }
 
     // send the query to state
     setSearchQuery(query);

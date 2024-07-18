@@ -17,20 +17,30 @@ import Error from './components/Error';
 import MovieDetails from './components/MovieDetails';
 import NotFound from './pages/NotFound';
 
+const ERROR_MESSAGE = 'An error has occured.';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />} errorElement={<Error />}>
-      <Route index element={<Home />} errorElement={<Error />} />
+    <Route
+      path="/fboxtv"
+      element={<RootLayout />}
+      errorElement={<Error message={ERROR_MESSAGE} />}
+    >
+      <Route
+        index
+        element={<Home />}
+        errorElement={<Error message={ERROR_MESSAGE} />}
+      />
 
       <Route
         path="filter/:query"
         element={<SearchResults />}
-        errorElement={<Error />}
+        errorElement={<Error message={ERROR_MESSAGE} />}
       />
 
       <Route
         path="movie/:id"
-        errorElement={<Error />}
+        errorElement={<Error message={ERROR_MESSAGE} />}
         element={<MovieDetails />}
       />
 

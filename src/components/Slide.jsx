@@ -2,13 +2,20 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import FeaturedMovie from './FeaturedMovie';
 import useFeaturedList from '../hooks/useFeaturedList';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
+import Spinner from './Spinner';
+// import Error from './Error';
 
 function Slide() {
   const { apiKey } = useTmdbApi();
   const { isPending, featuredList, error } = useFeaturedList(apiKey);
 
-  if (error || isPending) {
+  if (isPending) {
+    return <Spinner />;
+  }
+
+  if (error) {
     return null;
+    // return <Error styles="py-20 px-5" message={error.message} />;
   }
 
   const slicedFeaturedList = featuredList.slice(0, 10);

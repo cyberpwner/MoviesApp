@@ -1,7 +1,7 @@
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
 function MovieDetails() {
-  const { id } = useParams();
+  // const { id } = useParams();
 
   return (
     <section className="py-20 px-8 text-white">

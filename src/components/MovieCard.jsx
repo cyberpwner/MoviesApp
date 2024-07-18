@@ -3,17 +3,20 @@ import { Link } from 'react-router-dom';
 import { FaCirclePlay } from 'react-icons/fa6';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import useMovieDetails from '../hooks/useMovieDetails';
+import Spinner from './Spinner';
+// import Error from './Error';
 
 function MovieCard({ movieId }) {
   const { apiKey } = useTmdbApi();
   const { isPending, error, movieDetails } = useMovieDetails(apiKey, movieId);
 
   if (isPending) {
-    return <h1>Loading...</h1>;
+    return <Spinner />;
   }
 
   if (error) {
-    return <p>{error.message}</p>;
+    return null;
+    // return <Error className="py-20 px-5" message={error.message} />;
   }
 
   const {
@@ -28,7 +31,7 @@ function MovieCard({ movieId }) {
   return (
     <section className="flex flex-col gap-2 max-w-48 hover:text-secondary-yellow transition-all">
       <div className="poster relative">
-        <Link to={`/movie/${movieId}`}>
+        <Link to={`/fboxtv/movie/${movieId}`}>
           <img
             className="w-full rounded-lg"
             src={`https://image.tmdb.org/t/p/w154/${posterPath}`}
@@ -47,7 +50,7 @@ function MovieCard({ movieId }) {
       </div>
 
       <Link
-        to={`/movie/${movieId}`}
+        to={`/fboxtv/movie/${movieId}`}
         className="text-sm hover:text-secondary-yellow transition-all ease-in"
       >
         {originalTitle}
