@@ -22,7 +22,7 @@ const ERROR_MESSAGE = 'An error has occured.';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
-      path="/fboxtv"
+      path="/MoviesApp"
       element={<RootLayout />}
       errorElement={<Error message={ERROR_MESSAGE} />}
     >
