@@ -1,16 +1,44 @@
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
+import { useQuery } from '@tanstack/react-query';
+import Video from './Video';
+import Spinner from './Spinner';
+import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
+import fetchMovieTrailerKey from '../loaders/fetchMovieTrailerKey';
+import Error from './Error';
 
 function MovieDetails() {
-  // const { id } = useParams();
+  const { apiKey } = useTmdbApi();
+  const { id } = useParams();
+  const { isPending, isError, data } = useQuery({
+    queryKey: ['movieTrailerKey', apiKey, id],
+    queryFn: fetchMovieTrailerKey,
+  });
+
+  if (isPending) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    // return null;
+
+    return (
+      <Error
+        styles="py-20 px-5"
+        message="An error occured when trying to fetch movie trailer"
+      />
+    );
+  }
+
+  const trailerKey = data.results.find(
+    ({ type, official }) => type === 'Trailer' && official
+  ).key;
+
+  const url = `https://youtube.com/embed/${trailerKey}?autoplay=0&controls=0`;
 
   return (
-    <section className="py-20 px-8 text-white">
-      <h1 className="text-white text-4xl font-bold">MovieDetails</h1>
-      <p className="w-1/3">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima itaque
-        id harum qui eveniet natus cumque iusto similique delectus et facilis
-        vel inventore necessitatibus porro tempore, blanditiis ullam nihil iure?
-      </p>
+    <section className="my-20 text-white">
+      <Video url={url} />
     </section>
   );
 }

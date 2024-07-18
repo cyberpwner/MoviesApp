@@ -34,7 +34,7 @@ function MovieCard({ movieId }) {
         <Link to={`/MoviesApp/movie/${movieId}`}>
           <img
             className="w-full rounded-lg"
-            src={`https://image.tmdb.org/t/p/w154/${posterPath}`}
+            src={`https://image.tmdb.org/t/p/w342/${posterPath}`}
             alt={`${originalTitle} poster`}
           />
 

@@ -3,7 +3,7 @@ import LogoImg from '../assets/img/logo.png';
 
 function Logo() {
   return (
-    <Link to="/MoviesApp">
+    <Link to="/MoviesApp/">
       <img src={LogoImg} alt="Logo" className="w-32" />
     </Link>
   );
