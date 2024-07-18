@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
 import Error from '../components/Error';
 import MoviesList from '../components/MoviesList';
 import Spinner from '../components/Spinner';
@@ -6,7 +7,9 @@ import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import fetchMoviesByQuery from '../loaders/fetchMoviesByQuery';
 
 function SearchResults() {
-  const { apiKey, searchQuery } = useTmdbApi();
+  const { apiKey } = useTmdbApi();
+  const { query } = useParams();
+  const searchQuery = decodeURIComponent(query);
   const { isPending, isError, data, error } = useQuery({
     queryKey: ['searchMovies', apiKey, searchQuery],
     queryFn: fetchMoviesByQuery,
