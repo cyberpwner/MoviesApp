@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 function Video({ url }) {
-  return <iframe className="w-full h-full" src={url} title="movie trailer" />;
+  return <iframe className="w-full h-screen" src={url} title="movie trailer" />;
 }
 
 Video.propTypes = {

@@ -6,6 +6,7 @@ import Spinner from './Spinner';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import fetchMovieTrailerKey from '../loaders/fetchMovieTrailerKey';
 import Error from './Error';
+import MovieDescription from './MovieDescription';
 
 function MovieDetails() {
   const { apiKey } = useTmdbApi();
@@ -30,15 +31,14 @@ function MovieDetails() {
     );
   }
 
-  const trailerKey = data.results.find(
-    ({ type, official }) => type === 'Trailer' && official
-  ).key;
+  const trailerKey = data.results.find(({ type }) => type === 'Trailer').key;
 
   const url = `https://youtube.com/embed/${trailerKey}?autoplay=0&controls=0`;
 
   return (
-    <section className="my-20 text-white">
+    <section className="my-20 text-white grid grid-cols-1 gap-10">
       <Video url={url} />
+      <MovieDescription id={Number(id)} />
     </section>
   );
 }

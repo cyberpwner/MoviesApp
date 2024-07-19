@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import { FaStar, FaPlayCircle, FaBookmark } from 'react-icons/fa';
+// import Link from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useMovieDetails from '../hooks/useMovieDetails';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 
@@ -51,13 +53,15 @@ function FeaturedDetails({ movieId }) {
         <p className="text-dark-gray w-1/2 text-justify">{overview}</p>
 
         <div className="flex items-center gap-4 my-8">
-          <button
-            type="button"
-            className="flex items-center gap-2 bg-secondary-yellow hover:bg-yellow-400 text-primary-blue px-5 py-3 rounded-full transition-all"
-          >
-            <FaPlayCircle />
-            Watch Now
-          </button>
+          <Link to={`/MoviesApp/movie/${movieId}`}>
+            <button
+              type="button"
+              className="flex items-center gap-2 bg-secondary-yellow hover:bg-yellow-400 text-primary-blue px-5 py-3 rounded-full transition-all"
+            >
+              <FaPlayCircle />
+              Watch Now
+            </button>
+          </Link>
           <button
             type="button"
             className="flex items-center gap-2 text-gray-200 font-semibold px-5 py-3 rounded hover:text-secondary-yellow transition-all"

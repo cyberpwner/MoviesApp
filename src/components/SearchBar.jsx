@@ -21,6 +21,8 @@ function SearchBar() {
     // send the query to state
     setSearchQuery(query);
     navigate(`filter/${encodeURIComponent(query)}`);
+    // reset the form
+    event.target.reset();
   };
 
   return (
