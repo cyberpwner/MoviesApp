@@ -20,6 +20,7 @@ function Home() {
   return (
     <section className="">
       <Slide />
+
       <MoviesList moviesList={featuredList} />
     </section>
   );

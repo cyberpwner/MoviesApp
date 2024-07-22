@@ -39,23 +39,27 @@ function MovieDescription({ id }) {
     <section className="w-4/6 grid grid-cols-[auto,1fr] gap-2 justify-around">
       <section className="">
         <img
-          className="w-4/6 mx-auto rounded-md"
+          className="w-4/5 mx-auto rounded-md"
           src={`https://image.tmdb.org/t/p/w342/${posterPath}`}
           alt="movie poster"
         />
       </section>
       <section className="flex flex-col gap-3">
-        <h1 className="text-3xl font-bold text-white">{originalTitle}</h1>
+        <h1 className="text-3xl font-bold text-white tracking-wide">
+          {originalTitle}
+        </h1>
         <div className="w-fit flex gap-4 items-center text-sm text-gray-300">
           <span className="flex items-center gap-1">
-            <FaStar />
+            <FaStar className="text-secondary-yellow" />
             {rating.toFixed(1)}
           </span>
           <span>{releaseYear}</span>
           <span>{duration} min</span>
         </div>
 
-        <p className="text-gray-400 text-sm">{overview}</p>
+        <p className="text-dark-gray text-sm font-light tracking-wide text-justify">
+          {overview}
+        </p>
 
         <ul className="leading-8">
           <li>

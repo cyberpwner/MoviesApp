@@ -31,7 +31,7 @@ function SearchBar() {
       onSubmit={handleSubmit}
     >
       <input
-        className="w-full py-2.5 px-5 rounded-full outline-none text-center bg-black/50  text-secondary-yellow placeholder:text-secondary-yellow text-xs tracking-wider transition-all"
+        className="w-full py-3 px-5 rounded-full outline-none text-center bg-black/50  text-secondary-yellow placeholder:text-secondary-yellow/70 text-xs tracking-wider transition-all"
         type="search"
         name="search"
         id="search"
