@@ -7,7 +7,12 @@ function TmdbApiProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const memoizedApiData = useMemo(() => {
-    return { apiKey, setApiKey, searchQuery, setSearchQuery };
+    return {
+      apiKey,
+      setApiKey,
+      searchQuery,
+      setSearchQuery,
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [apiKey, searchQuery]);
 

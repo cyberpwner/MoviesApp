@@ -1,24 +1,30 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { useQuery } from '@tanstack/react-query';
 import FeaturedMovie from './FeaturedMovie';
-import useFeaturedList from '../hooks/useFeaturedList';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import Spinner from './Spinner';
+import fetchTrendingList from '../loaders/fetchTrendingList';
 // import Error from './Error';
 
 function Slide() {
   const { apiKey } = useTmdbApi();
-  const { isPending, featuredList, error } = useFeaturedList(apiKey);
+  const { isPending, isError, data } = useQuery({
+    queryKey: ['trendingMoviesList', apiKey],
+    queryFn: fetchTrendingList,
+  });
 
   if (isPending) {
     return <Spinner />;
   }
 
-  if (error) {
+  if (isError) {
     return null;
     // return <Error styles="py-20 px-5" message={error.message} />;
   }
 
-  const slicedFeaturedList = featuredList.slice(0, 10);
+  const slicedFeaturedList = data.results
+    .filter(({ media_type: mediaType }) => mediaType === 'movie')
+    .slice(0, 12);
 
   return (
     <Splide

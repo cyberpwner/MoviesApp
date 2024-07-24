@@ -1,13 +1,17 @@
+import { useQuery } from '@tanstack/react-query';
 import Error from '../components/Error';
 import MoviesList from '../components/MoviesList';
 import Slide from '../components/Slide';
 import Spinner from '../components/Spinner';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
-import useFeaturedList from '../hooks/useFeaturedList';
+import fetchTrendingList from '../loaders/fetchTrendingList';
 
 function Home() {
   const { apiKey } = useTmdbApi();
-  const { isPending, isError, featuredList, error } = useFeaturedList(apiKey);
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ['trendingMoviesList', apiKey],
+    queryFn: fetchTrendingList,
+  });
 
   if (isPending) {
     return <Spinner />;
@@ -21,7 +25,7 @@ function Home() {
     <section className="">
       <Slide />
 
-      <MoviesList moviesList={featuredList} />
+      <MoviesList moviesList={data.results} />
     </section>
   );
 }

@@ -24,23 +24,23 @@ const router = createBrowserRouter(
     <Route
       path="/MoviesApp"
       element={<RootLayout />}
-      errorElement={<Error message={ERROR_MESSAGE} />}
+      errorElement={<Error styles="mt-20 mx-auto" message={ERROR_MESSAGE} />}
     >
       <Route
         index
         element={<Home />}
-        errorElement={<Error message={ERROR_MESSAGE} />}
+        errorElement={<Error styles="mt-20 mx-auto" message={ERROR_MESSAGE} />}
       />
 
       <Route
         path="filter/:query"
         element={<SearchResults />}
-        errorElement={<Error message={ERROR_MESSAGE} />}
+        errorElement={<Error styles="mt-20 mx-auto" message={ERROR_MESSAGE} />}
       />
 
       <Route
         path="movie/:id"
-        errorElement={<Error message={ERROR_MESSAGE} />}
+        errorElement={<Error styles="mt-20 mx-auto" message={ERROR_MESSAGE} />}
         element={<MovieDetails />}
       />
 

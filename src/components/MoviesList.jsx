@@ -8,13 +8,14 @@ function MoviesList({ moviesList }) {
 
   return (
     <>
-      <div className="flex items-center gap-2 my-10 mx-8">
-        <FaRegPlayCircle className="text-3xl text-secondary-yellow" />
-        <h1 className="font-bold text-2xl uppercase">
-          {pathname === '/MoviesApp/' ? 'Recommended' : 'Filter'}
-        </h1>
+      <div className="flex items-center gap-4 my-10 mx-8">
+        <div className="flex items-center gap-2">
+          <FaRegPlayCircle className="text-3xl text-secondary-yellow" />
+          <h1 className="font-bold text-2xl uppercase">
+            {pathname === '/MoviesApp/' ? 'Trending' : 'Filter'}
+          </h1>
+        </div>
       </div>
-
       <div className="grid grid-cols-2 gap-3 w-fit my-10 mx-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {moviesList.map(({ id }) => (
           <MovieCard key={id} movieId={id} />
