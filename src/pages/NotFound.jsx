@@ -8,7 +8,7 @@ function NotFound() {
         <p className="text-center">
           Page not found! Go back to the{' '}
           <Link
-            to="/"
+            to="/MoviesApp/"
             className="text-secondary-yellow underline underline-offset-2"
           >
             Home Page

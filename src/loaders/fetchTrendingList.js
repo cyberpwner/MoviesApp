@@ -1,8 +1,8 @@
 const fetchTrendingList = async ({ queryKey }) => {
-  const [, apiKey] = queryKey;
+  const [, apiKey, currentPage] = queryKey;
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}`
+    `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&page=${currentPage + 1}`
   );
 
   if (!response.ok) {

@@ -2,8 +2,14 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { FaRegPlayCircle } from 'react-icons/fa';
 import MovieCard from './MovieCard';
+import PaginationBar from './PaginationBar';
 
-function MoviesList({ moviesList }) {
+function MoviesList({
+  moviesList,
+  currentPage,
+  setCurrentPage,
+  numberOfPages,
+}) {
   const { pathname } = useLocation();
 
   return (
@@ -21,6 +27,13 @@ function MoviesList({ moviesList }) {
           <MovieCard key={id} movieId={id} />
         ))}
       </div>
+      <div>
+        <PaginationBar
+          numberOfPages={numberOfPages > 10 ? 10 : numberOfPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
     </>
   );
 }
@@ -28,6 +41,9 @@ function MoviesList({ moviesList }) {
 MoviesList.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types, react/require-default-props
   moviesList: PropTypes.arrayOf(PropTypes.object),
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
+  numberOfPages: PropTypes.number.isRequired,
 };
 
 export default MoviesList;

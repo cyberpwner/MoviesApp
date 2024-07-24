@@ -31,13 +31,13 @@ function MovieDetails() {
     );
   }
 
-  const trailerKey = data.results.find(({ type }) => type === 'Trailer').key;
+  const trailerKey = data.results.find(({ type }) => type === 'Trailer')?.key;
 
-  const url = `https://youtube.com/embed/${trailerKey}?autoplay=0&controls=0`;
+  const url = `${trailerKey ? `https://youtube.com/embed/${trailerKey}?autoplay=0&controls=0` : ''}`;
 
   return (
     <section className="my-20 text-white grid grid-cols-1 gap-10">
-      <Video url={url} />
+      {url && <Video url={url} />}
       <MovieDescription id={Number(id)} />
     </section>
   );

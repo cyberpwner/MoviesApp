@@ -9,7 +9,7 @@ import fetchTrendingList from '../loaders/fetchTrendingList';
 function Slide() {
   const { apiKey } = useTmdbApi();
   const { isPending, isError, data } = useQuery({
-    queryKey: ['trendingMoviesList', apiKey],
+    queryKey: ['trendingMoviesList', apiKey, 1],
     queryFn: fetchTrendingList,
   });
 

@@ -1,8 +1,8 @@
 const fetchMoviesByQuery = async ({ queryKey }) => {
-  const [, apiKey, searchQuery] = queryKey;
+  const [, apiKey, searchQuery, currentPage] = queryKey;
 
   const response = await fetch(
-    `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(searchQuery)}&page=1&api_key=${apiKey}&language=en-US`
+    `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(searchQuery)}&page=${currentPage + 1}&api_key=${apiKey}&language=en-US`
   );
 
   if (!response.ok) {

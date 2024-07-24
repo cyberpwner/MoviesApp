@@ -44,7 +44,7 @@ function MovieCard({ movieId }) {
         </Link>
       </div>
 
-      <div className="flex justify-between items-center text-xs text-gray-300">
+      <div className="flex justify-between items-center text-xs text-gray-400">
         <span>{releaseYear}</span>
         <span>{duration} min</span>
       </div>
