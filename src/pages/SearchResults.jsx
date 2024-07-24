@@ -25,20 +25,19 @@ function SearchResults() {
     return <Error styles="py-20 px-5" message={error.message} />;
   }
 
-  const searchedMovies = data.results.filter(
-    ({
-      genre_ids: genreIds,
-      poster_path: posterPath,
-      backdrop_path: coverPath,
-    }) => genreIds.length > 0 && posterPath && coverPath
-    // making sure it's a movie not some weird podcast or album etc
+  const movies = data.results.filter(
+    (movie) =>
+      movie.media_type === 'movie' &&
+      movie.genre_ids.length > 0 &&
+      movie.poster_path &&
+      movie.backdrop_path
   );
 
   return (
     <section className="py-20 px-5">
       <MoviesList
         numberOfPages={data.total_pages}
-        moviesList={searchedMovies}
+        moviesList={movies}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
