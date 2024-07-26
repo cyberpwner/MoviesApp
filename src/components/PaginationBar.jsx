@@ -14,7 +14,7 @@ function PaginationBar({ numberOfPages, currentPage, setCurrentPage }) {
           key={num}
           type="button"
           className={classNames({
-            'bg-secondary-blue px-3 py-1.5 rounded-md text-white hover:bg-secondary-yellow hover:text-secondary-blue transition-all ease-in': true,
+            'bg-secondary-blue px-3 py-1.5 rounded-md text-gray-300 text-sm hover:bg-secondary-yellow hover:text-secondary-blue transition-all ease-in': true,
             'bg-secondary-yellow text-white cursor-text hover:text-white':
               num === currentPage,
           })}

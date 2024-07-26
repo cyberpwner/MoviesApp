@@ -71,3 +71,7 @@ html {
 .poster:hover .fa-circle-play {
   opacity: 1;
 }
+
+.hover-text-dark-blue:hover * {
+  color: rgb(0, 9, 113);
+}

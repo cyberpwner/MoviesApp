@@ -7,6 +7,7 @@ import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import fetchMovieTrailerKey from '../loaders/fetchMovieTrailerKey';
 import Error from './Error';
 import MovieDescription from './MovieDescription';
+import RecommendedMovies from './RecommendedMovies';
 
 function MovieDetails() {
   const { apiKey } = useTmdbApi();
@@ -38,7 +39,10 @@ function MovieDetails() {
   return (
     <section className="my-20 text-white grid grid-cols-1 gap-10">
       {url && <Video url={url} />}
-      <MovieDescription id={Number(id)} />
+      <section className="mx-auto p-4 grid grid-cols-1 gap-12 lg:grid-cols-[1fr,auto]">
+        <MovieDescription id={Number(id)} />
+        <RecommendedMovies movieId={Number(id)} />
+      </section>
     </section>
   );
 }
