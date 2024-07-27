@@ -34,7 +34,7 @@ function RecommendedMovies({ movieId }) {
         <h1 className="font-bold text-2xl uppercase">Recommended</h1>
       </div>
 
-      <ul className="w-full min-w-96 grid grid-cols-1 gap-2">
+      <ul className="w-full min-w-80 grid grid-cols-1 gap-2">
         {movies.map(({ id }) => (
           <li key={id}>
             <RecommendedMovieCard movieId={id} />

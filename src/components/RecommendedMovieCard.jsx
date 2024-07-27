@@ -46,7 +46,7 @@ function RecommendedMovieCard({ movieId }) {
           <span>/</span>
           <span>{duration} min</span>
         </div>
-        <h3 className="text-lg capitalize">{originalTitle}</h3>
+        <h3 className="text-sm md:text-md capitalize">{originalTitle}</h3>
       </div>
     </Link>
   );
