@@ -31,14 +31,14 @@ function FeaturedDetails({ movieId }) {
       <img
         src={`https://image.tmdb.org/t/p/original${coverPath}`}
         alt="Movie Cover"
-        className="w-full h-screen"
+        className="w-full min-h-96"
       />
 
       <section className="absolute grid grid-cols-1 gap-2 z-10 bottom-0 text-white p-4">
-        <h1 className="text-4xl font-bold tracking-wide uppercase">
+        <h1 className="text-xl md:text-3xl lg:text-4xl font-bold tracking-wide uppercase">
           {originalTitle}
         </h1>
-        <div className="flex items-center gap-4 text-xs text-gray-200 tracking-wider">
+        <div className="flex flex-wrap items-center gap-4 text-xs text-gray-200 tracking-wider">
           <span className="flex gap-1 items-center">
             <FaStar />
             {voteAverage.toFixed(2)}
@@ -50,7 +50,9 @@ function FeaturedDetails({ movieId }) {
             <span key={name}>{name}</span>
           ))}
         </div>
-        <p className="text-dark-gray w-1/2 text-justify">{overview}</p>
+        <p className="text-dark-gray w-1/2 text-justify hidden lg:block">
+          {overview}
+        </p>
 
         <div className="flex items-center gap-4 my-8">
           <Link to={`/MoviesApp/movie/${movieId}`}>

@@ -39,7 +39,7 @@ function MovieDetails() {
   return (
     <section className="my-20 text-white grid grid-cols-1 gap-10">
       {url && <Video url={url} />}
-      <section className="mx-auto p-4 grid grid-cols-1 gap-12 lg:grid-cols-[1fr,auto]">
+      <section className="mx-auto p-4 grid grid-cols-1 gap-12 xl:grid-cols-[1fr,auto]">
         <MovieDescription id={Number(id)} />
         <RecommendedMovies movieId={Number(id)} />
       </section>

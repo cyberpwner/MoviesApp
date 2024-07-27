@@ -21,10 +21,14 @@ function RecommendedMovies({ movieId }) {
     return null;
   }
 
+  if (!data.results.length) {
+    return null;
+  }
+
   const movies = data.results.slice(0, 9);
 
   return (
-    <div className="grid grid-cols-1 gap-5">
+    <div className="grid grid-cols-1 gap-5 p-3">
       <div className="flex items-center gap-2">
         <FaRegPlayCircle className="text-3xl text-secondary-yellow" />
         <h1 className="font-bold text-2xl uppercase">Recommended</h1>

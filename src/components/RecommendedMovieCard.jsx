@@ -38,7 +38,7 @@ function RecommendedMovieCard({ movieId }) {
         />
       </div>
 
-      <div className="flex flex-col justify-center px">
+      <div className="flex flex-col justify-center px-4">
         <div className="flex gap-3 text-xs text-gray-400 transition-all">
           <span className="uppercase">Movie</span>
           <span>/</span>

@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { FaSearch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 
-function SearchBar() {
+function SearchBar({ setShowSearchBar }) {
   const { setSearchQuery } = useTmdbApi();
   const navigate = useNavigate();
 
@@ -21,28 +22,36 @@ function SearchBar() {
     // send the query to state
     setSearchQuery(query);
     navigate(`filter/${encodeURIComponent(query)}`);
-    // reset the form
+
+    // reset and hide the form
     event.target.reset();
+    setShowSearchBar(false);
   };
 
   return (
-    <form
-      className="search-bar flex items-center rounded-full transition-all"
-      onSubmit={handleSubmit}
-    >
-      <input
-        className="w-full py-3 px-5 rounded-full outline-none text-center bg-black/50  text-secondary-yellow placeholder:text-secondary-yellow/70 text-xs tracking-wider transition-all"
-        type="search"
-        name="search"
-        id="search"
-        placeholder="Search movies..."
-      />
+    <div className="absolute top-20 w-full">
+      <form
+        className="w-5/6 mx-auto search-bar flex items-center rounded-full transition-all"
+        onSubmit={handleSubmit}
+      >
+        <input
+          className="w-full mx-auto py-3 px-5 rounded-full outline-none text-center bg-black/30  text-secondary-yellow placeholder:text-secondary-yellow/70 text-xs tracking-wider transition-all"
+          type="search"
+          name="search"
+          id="search"
+          placeholder="Search movies..."
+        />
 
-      <button type="submit" className="flex items-center">
-        <FaSearch className="text-secondary-yellow -m-7 font-light cursor-pointer" />
-      </button>
-    </form>
+        <button type="submit" className="flex items-center">
+          <FaSearch className="text-secondary-yellow -m-7 font-light cursor-pointer" />
+        </button>
+      </form>
+    </div>
   );
 }
+
+SearchBar.propTypes = {
+  setShowSearchBar: PropTypes.func.isRequired,
+};
 
 export default SearchBar;

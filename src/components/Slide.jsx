@@ -40,7 +40,10 @@ function Slide() {
       }}
     >
       {slicedFeaturedList.map(({ id }) => (
-        <SplideSlide className="w-full cursor-move" key={id}>
+        <SplideSlide
+          className="w-full cursor-move  min-h-96 h-3/5 max-h-screen"
+          key={id}
+        >
           <FeaturedMovie movieId={id} />
         </SplideSlide>
       ))}

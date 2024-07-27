@@ -36,10 +36,10 @@ function MovieDescription({ id }) {
   const releaseYear = releaseDate.split('-')[0];
 
   return (
-    <section className="max-w-full grid grid-cols-[auto,1fr] gap-2 justify-around">
+    <section className="px-6 max-w-full grid grid-cols-1 md:grid-cols-[auto,1fr] gap-2 justify-around">
       <section className="">
         <img
-          className="w-4/5 mx-auto rounded-md"
+          className="w-1/2 lg:w-4/5 mx-auto rounded-md"
           src={`https://image.tmdb.org/t/p/w342/${posterPath}`}
           alt="movie poster"
         />

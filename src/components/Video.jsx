@@ -5,7 +5,13 @@ function Video({ url }) {
     return null;
   }
 
-  return <iframe className="w-full h-screen" src={url} title="movie trailer" />;
+  return (
+    <iframe
+      className="w-full min-h-96 xl:h-screen"
+      src={url}
+      title="movie trailer"
+    />
+  );
 }
 
 Video.propTypes = {

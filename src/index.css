@@ -29,11 +29,11 @@ html {
 }
 
 .search-bar {
-  width: 35%;
+  /* width: 35%; */
 
   & input[type='search']:hover,
   & input[type='search']:focus {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 2px 5px #000;
   }
 }
