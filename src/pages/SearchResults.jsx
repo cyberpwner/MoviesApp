@@ -39,6 +39,10 @@ function SearchResults() {
     return <Error styles="py-20 px-5" message={error.message} />;
   }
 
+  if (!data?.pages[0]?.total_results) {
+    return <Error styles="py-20 px-5" message="No results found." />;
+  }
+
   return (
     <section className="py-20 px-5">
       <MoviesList

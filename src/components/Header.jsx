@@ -14,18 +14,20 @@ function Header() {
       <section className="flex justify-between items-center">
         <Logo />
 
-        <button
-          type="button"
-          className="text-xl hover:text-secondary-yellow transition-all"
-          onClick={() => setShowSearchBar((prev) => !prev)}
-        >
-          <FaSearch
-            className={classNames({ 'text-secondary-yellow': showSearchBar })}
-          />
-        </button>
-        {showSearchBar && <SearchBar setShowSearchBar={setShowSearchBar} />}
+        <div className="flex gap-5">
+          <button
+            type="button"
+            className="text-xl hover:text-secondary-yellow transition-all"
+            onClick={() => setShowSearchBar((prev) => !prev)}
+          >
+            <FaSearch
+              className={classNames({ 'text-secondary-yellow': showSearchBar })}
+            />
+          </button>
+          {showSearchBar && <SearchBar setShowSearchBar={setShowSearchBar} />}
 
-        <LoginButton />
+          <LoginButton />
+        </div>
       </section>
     </header>
   );

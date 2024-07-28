@@ -29,7 +29,7 @@ function SearchBar({ setShowSearchBar }) {
   };
 
   return (
-    <div className="absolute top-20 w-full">
+    <div className="absolute left-0 -m-4 top-20 w-full">
       <form
         className="w-5/6 mx-auto search-bar flex items-center rounded-full transition-all"
         onSubmit={handleSubmit}
