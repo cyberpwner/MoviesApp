@@ -54,7 +54,7 @@ function MoviesList({
           className="block bg-blue-900 px-8 py-3.5 rounded-full hover:bg-secondary-yellow hover:text-secondary-blue transition-all cursor-pointer uppercase mx-auto mb-8 disabled:bg-secondary-blue/70 disabled:text-gray-300"
         >
           {isFetchingNextPage
-            ? 'Loading more'
+            ? 'Loading...'
             : hasNextPage
               ? 'Load more'
               : 'Nothing more to load'}

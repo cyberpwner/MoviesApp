@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Work Sans';
+  src: url('https://fonts.gstatic.com/s/worksans/v19/QGYsz_wNahGAdqQ43Rh_fKDp.woff2');
+}
+
 :root {
   --primary-blue: '#040e1e';
   --secondary-yellow: '#fcc409';
@@ -9,6 +14,14 @@
 
 html {
   scrollbar-color: #fcc409 #000;
+}
+
+body {
+  font-family: 'Work Sans';
+
+  &.hide-scroll {
+    overflow: hidden;
+  }
 }
 
 #root {

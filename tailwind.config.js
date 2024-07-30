@@ -13,6 +13,7 @@ export default {
       // add my custom colors
       'primary-blue': '#040e1e',
       'secondary-blue': '#061c45',
+      'custom-dark-blue': '#04132d',
       'secondary-yellow': '#fcc409',
       'dark-gray': 'rgb(174, 174, 176)',
       'light-gray': 'rgb(220, 220, 220)',

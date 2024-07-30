@@ -16,6 +16,7 @@ import SearchResults from './pages/SearchResults';
 import Error from './components/Error';
 import MovieDetails from './components/MovieDetails';
 import NotFound from './pages/NotFound';
+import LoginProvider from './contexts/LoginContext/LoginProvider';
 
 const ERROR_MESSAGE = 'An error has occured.';
 
@@ -62,8 +63,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <TmdbApiProvider>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
+        <LoginProvider>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools initialIsOpen={false} />
+        </LoginProvider>
       </TmdbApiProvider>
     </QueryClientProvider>
   </React.StrictMode>
