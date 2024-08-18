@@ -31,7 +31,7 @@ function SearchBar({ setShowSearchBar }) {
   return (
     <div className="absolute left-0 -m-4 top-20 w-full">
       <form
-        className="w-5/6 mx-auto search-bar flex items-center rounded-full transition-all"
+        className="w-2/3 sm:w-1/3 mx-auto search-bar flex items-center rounded-full transition-all"
         onSubmit={handleSubmit}
       >
         <input

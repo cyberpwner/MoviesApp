@@ -16,7 +16,7 @@ function MoviesList({
   const { pathname } = useLocation();
 
   return (
-    <>
+    <section>
       <div className="flex items-center gap-4 my-10 mx-8">
         <div className="flex items-center gap-2">
           <FaRegPlayCircle className="text-3xl text-secondary-yellow" />
@@ -26,7 +26,7 @@ function MoviesList({
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 w-fit my-10 mx-8 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8">
+      <div className="grid grid-cols-3 gap-3 w-fit my-10 mx-8 md:grid-cols-4 xl:grid-cols-5">
         {pages.map((page) => (
           <Fragment key={page.page}>
             {!filterMovies
@@ -61,7 +61,7 @@ function MoviesList({
         </button>
       </div>
       <div>{isFetching && !isFetchingNextPage ? 'Fetching...' : null}</div>
-    </>
+    </section>
   );
 }
 

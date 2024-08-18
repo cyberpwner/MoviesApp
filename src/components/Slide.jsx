@@ -1,9 +1,10 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { useQuery } from '@tanstack/react-query';
-import FeaturedMovie from './FeaturedMovie';
+
 import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import Spinner from './Spinner';
 import fetchTrendingList from '../loaders/fetchTrendingList';
+import FeaturedDetails from './FeaturedDetails';
 // import Error from './Error';
 
 function Slide() {
@@ -44,7 +45,7 @@ function Slide() {
           className="w-full cursor-move  min-h-96 h-3/5 max-h-screen"
           key={id}
         >
-          <FeaturedMovie movieId={id} />
+          <FeaturedDetails movieId={id} />
         </SplideSlide>
       ))}
     </Splide>

@@ -4,7 +4,7 @@ import useTmdbApi from '../contexts/TmdbApiContext/useTmdbApi';
 import useMovieDetails from '../hooks/useMovieDetails';
 import Spinner from './Spinner';
 
-function RecommendedMovieCard({ movieId }) {
+function AsideMovieCard({ movieId }) {
   const { apiKey } = useTmdbApi();
   const { isPending, isError, movieDetails } = useMovieDetails(apiKey, movieId);
 
@@ -52,8 +52,8 @@ function RecommendedMovieCard({ movieId }) {
   );
 }
 
-RecommendedMovieCard.propTypes = {
+AsideMovieCard.propTypes = {
   movieId: PropTypes.number.isRequired,
 };
 
-export default RecommendedMovieCard;
+export default AsideMovieCard;

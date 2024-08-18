@@ -12,6 +12,16 @@ function MovieCard({ movieId }) {
 
   if (isPending) {
     return <Spinner />;
+    // return (
+    //   <section className="flex flex-col gap-2 max-w-48">
+    //     <div className="poster relative bg-slate-500 w-full h-3/4 rounded-lg opacity-65" />
+    //     <div className="flex justify-between items-center text-xs text-gray-400">
+    //       <span className="bg-slate-400 w-1/5 h-3 opacity-65" />
+    //       <span className="bg-slate-400 w-1/5 h-3 opacity-65" />
+    //     </div>
+    //     <div className="bg-slate-400 w-3/4 h-3 opacity-65" />
+    //   </section>
+    // );
   }
 
   if (error) {

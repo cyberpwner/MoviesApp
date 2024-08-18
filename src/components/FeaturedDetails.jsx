@@ -58,7 +58,7 @@ function FeaturedDetails({ movieId }) {
           <Link to={`/MoviesApp/movie/${movieId}`}>
             <button
               type="button"
-              className="flex items-center gap-2 bg-secondary-yellow hover:bg-yellow-400 text-primary-blue px-5 py-3 rounded-full transition-all"
+              className="flex items-center gap-2 font-medium bg-secondary-yellow hover:bg-yellow-400 text-primary-blue px-5 py-3 rounded-full transition-all"
             >
               <FaPlayCircle />
               Watch Now
