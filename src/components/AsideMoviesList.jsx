@@ -15,7 +15,9 @@ function AsideMoviesList({ movies }) {
     >
       <div className="flex items-center gap-2">
         <FaRegPlayCircle className="text-3xl text-secondary-yellow" />
-        <h1 className="font-bold text-2xl uppercase">Now in theatres</h1>
+        <h1 className="font-bold text-2xl uppercase">
+          {pathname === '/MoviesApp/' ? 'Now in theatres' : 'Recommended'}
+        </h1>
       </div>
 
       <ul className="w-full min-w-80 grid grid-cols-1 gap-2">

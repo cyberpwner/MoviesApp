@@ -26,7 +26,7 @@ function MoviesList({
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 w-fit my-10 mx-8 md:grid-cols-4 xl:grid-cols-5">
+      <div className="grid grid-cols-3 gap-3 w-fit my-10 mx-8 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6">
         {pages.map((page) => (
           <Fragment key={page.page}>
             {!filterMovies
